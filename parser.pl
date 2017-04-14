@@ -9,16 +9,17 @@
  verb_phrase(vp(V,PS,A)) --> adverbs(V), adjectives(PS), noun(A).
  partial_sentence(vp(C,D,E)) --> prepositions(C),det(D),adjectives(E).
 
-
-
+%---------------------------------------------------------------------------------------------
+%sentence(Parse_tree, Y, []).
 %sentence(Parse_tree, [the,young,boy,put,a,big,box,in,the,large,empty,room,after,school], []).
 %the,old,woman,gave,the,poor,young,man,a,white,envelope,in,the,shed,behind,the,building
 %the,pretty,woman,who,worked,with,the,old,man,secretly,gave,me,three,letters
 %every,boy,quickly,climbed,some,big,tree
 %sentence(Parse_tree, [], []).
+%---------------------------------------------------------------------------------------------
 
 
-
+%set of determinants 
  det(d(the)) --> [the].
  det(d(a)) --> [a].
  det(d(this)) --> [this].
@@ -30,6 +31,7 @@
  det(d(these)) --> [these].
  det(d(those)) --> [those].
 
+%set of nouns
  noun(n(boy)) --> [boy].
  noun(n(box)) --> [box].
  noun(n(room)) --> [room].
@@ -54,7 +56,7 @@
  noun(n(letters)) --> [letters].
  
  
-
+%set of verbs
  verb(v(put)) --> [put].
  verb(v(gave)) --> [gave].
  verb(v(climbed)) --> [climbed].
@@ -77,7 +79,7 @@
  verb(v(shunt)) --> [shunt].
  verb(v(throw)) --> [throw].
 
-
+%set of adjectives
  adjectives(ad(young)) --> [young].
  adjectives(ad(big)) --> [big].
  adjectives(ad(large)) --> [large].
@@ -101,7 +103,7 @@
  adjectives(ad(sharp)) --> [sharp].
  
   
-
+%set of prepositions
  prepositions(ps(in)) --> [in].
  prepositions(ps(after)) --> [after].
  prepositions(ps(behind)) --> [behind].
@@ -113,6 +115,8 @@
  prepositions(ps(without)) --> [without].
  prepositions(ps(within)) --> [within].
  
+
+ %set of pronouns
  pronouns(pr(me)) --> [me].
  pronouns(rp(who)) --> [who].
  pronouns(rp(i)) --> [i].
@@ -120,9 +124,8 @@
  pronouns(rp(we)) --> [we].
 
 
- plural(pr(letters)) --> [letters].
 
-
+%set of adverbs
  adverbs(adv(quickly)) --> [quickly].
  adverbs(adv(often)) --> [often].
  adverbs(adv(some)) --> [some].
@@ -135,14 +138,14 @@
  adverbs(adv(almost)) --> [almost].
  
 
+%notes
+%-----------------------------------------------------------------------------------------------
 %the young boy put a big box in the large empty room after school
 %sentence(Parse_tree, [the,young,boy,put,a,big,box,in,the,large,empty,room,after,school], []).
 %subject_pronouns(i, you, he...etc)
 %object_pronouns(me, you, him, her)
 %relative_pronouns(who, which, that, whom)
-%diffrentiate between mofrad we gam3
 %prepositions(in, out, on, to, with...etc)
 %adjectives(funny, smart, old, young)
 %adverbs(quickly, slowly, secretly...etc)
 %determinant(every, all, some, my, your, his)
-%sentence(Parse_tree, Y, []).

@@ -1,20 +1,25 @@
  sentence(s(NP,VP)) --> noun_phrase(NP), verb_phrase(VP).
+
  noun_phrase(np(D,AD,N)) --> det(D), adjectives(AD), noun(N) .
  noun_phrase(np(D,AD,N,S)) --> adjectives(D), noun(AD), adverbs(N),verb(S) .
+
+
  verb_phrase(vp(V,PS,A,B,C,F,G,H,I)) --> verb(V), det(PS), adjectives(A),noun(B),partial_sentence(C),adjectives(F),noun(G),prepositions(H),noun(I).
  verb_phrase(vp(V,PS,A,B,C,F,G,H,I)) --> verb(V), det(PS), adjectives(A),noun(B),partial_sentence(C),adjectives(F),noun(G),prepositions(H),noun(I).
- verb_phrase(vp(V,PS,A,B,C,D,E,F,G,H,I,J,K,L)) --> verb(V), det(PS), adjectives(A),adjectives(B),noun(C),det(D),adjectives(E),
-                                                    noun(F),prepositions(G),det(H),noun(I),prepositions(J),det(K),noun(L).
+ verb_phrase(vp(V,PS,A,B,C,D,E,F,G,H,I,J,K,L)) -->
+  verb(V), det(PS), adjectives(A),adjectives(B),noun(C),det(D),adjectives(E), noun(F)
+  ,prepositions(G),det(H),noun(I),prepositions(J),det(K),noun(L).
  verb_phrase(vp(V,PS,A,D,E,F,G,H,I)) --> noun(V), adjectives(PS),partial_sentence(A) ,noun(D),adjectives(E),verb(F),noun(G),noun(H),noun(I).
  verb_phrase(vp(V,PS,A)) --> adverbs(V), adjectives(PS), noun(A).
+
  partial_sentence(vp(C,D,E)) --> prepositions(C),det(D),adjectives(E).
 
 %---------------------------------------------------------------------------------------------
 %sentence(Parse_tree, Y, []).
 %sentence(Parse_tree, [the,young,boy,put,a,big,box,in,the,large,empty,room,after,school], []).
-%the,old,woman,gave,the,poor,young,man,a,white,envelope,in,the,shed,behind,the,building
-%the,pretty,woman,who,worked,with,the,old,man,secretly,gave,me,three,letters
-%every,boy,quickly,climbed,some,big,tree
+%sentence(Parse_tree, [the,old,woman,gave,the,poor,young,man,a,white,envelope,in,the,shed,behind,the,building], []).
+%sentence(Parse_tree, [the,pretty,woman,who,worked,with,the,old,man,secretly,gave,me,three,letters], []).
+%sentence(Parse_tree, [every,boy,quickly,climbed,some,big,tree], []).
 %sentence(Parse_tree, [], []).
 %---------------------------------------------------------------------------------------------
 
